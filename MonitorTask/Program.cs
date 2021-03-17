@@ -76,13 +76,13 @@ namespace MonitorTask
 
             for (int i = 0; i < coreCount; i++)
             {                
-                cpuCoresUsagesText[i] = $"Uso de CPU Core({i});{(int)pc[i].NextValue()} %";
+                cpuCoresUsagesText[i] = $"Uso de CPU Core({i}); {(int)pc[i].NextValue()} %";
             }
                    
             foreach (DriveInfo drive in drives)
             {
                 
-                driveInfo[index] = ($"Dispositivo {drive.Name};Espacio Disponible " +
+                driveInfo[index] = ($"Dispositivo {drive.Name}; Espacio Disponible " +
                     $"{((drive.AvailableFreeSpace/1024)/1024)/1024} GB de {((drive.TotalSize/1024)/1024)/1024} GB");
                
                 index++;
