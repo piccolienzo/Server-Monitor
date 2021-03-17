@@ -15,7 +15,13 @@ namespace MonitorTask
        
 
         static void Main(string[] args)
+
         {
+            Console.Title = "Server Monitor";
+            string path = @"C:\Logs\Server_Monitor.csv";
+            Console.WriteLine("Generando Server_Monitor.csv\nEspere 10 segundos hasta que se complete.\nSi tiene el documento Server_Monitor.csv porfavor cerrarlo\nEl archivo se generara en "+path);
+            Console.Beep();
+            
 
             #region Definitions 
             //Ram pc
@@ -92,7 +98,7 @@ namespace MonitorTask
             #endregion
             
             System.Threading.Thread.Sleep(5000); //Delay de 5 segundos
-            string path = @"C:\Logs\Server_Monitor.csv";
+            
             // Create a file to write to.
             using (StreamWriter sw = File.CreateText(path))
             {
