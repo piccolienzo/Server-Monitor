@@ -50,8 +50,8 @@ namespace MonitorTask
 
             }
             //temp
-            PerformanceCounter pcTemp = new PerformanceCounter("Thermal Zone Information", "Temperature", @"\_TZ.TZ00");
-            pcTemp.NextValue();
+            //PerformanceCounter pcTemp = new PerformanceCounter("Thermal Zone Information", "Temperature", @"\_TZ.TZ00");
+            //pcTemp.NextValue();
 
             //general cpu
             PerformanceCounter pcCPU = new PerformanceCounter();
@@ -76,7 +76,7 @@ namespace MonitorTask
 
             string ramUsageText = $"RAM disponible; {(int)pcRAM.NextValue()} MB ";
 
-            string cpuTemperature = $"Temperatura; {(int)(pcTemp.NextValue() - 273.15f)} \u00B0C";
+            //string cpuTemperature = $"Temperatura; {(int)(pcTemp.NextValue() - 273.15f)} \u00B0C";
 
             string[] cpuCoresUsagesText = new string[coreCount];
 
@@ -102,7 +102,7 @@ namespace MonitorTask
             // Create a file to write to.
             using (StreamWriter sw = File.CreateText(path))
             {
-                sw.Write($"{datestring}\n{cpuTemperature}\n{cpuUsageText}\n{string.Join("\n", cpuCoresUsagesText)}\n{ramUsageText}\nAlmacenamiento\n{string.Join("\n", driveInfo)}");
+                sw.Write($"{datestring}\n{cpuUsageText}\n{string.Join("\n", cpuCoresUsagesText)}\n{ramUsageText}\nAlmacenamiento\n{string.Join("\n", driveInfo)}");
                 //sw.WriteLine("");
                 //sw.WriteLine("");
             }
